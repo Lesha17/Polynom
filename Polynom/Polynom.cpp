@@ -1,4 +1,4 @@
-#include <iostream>
+Ôªø#include <iostream>
 #include <windows.h>
 #include <wincon.h>
 #include <fstream>
@@ -7,7 +7,7 @@
 
 using namespace std;
 
-// äÆ≠·‚†≠‚Î §´Ô ¢Î°Æ‡† §•©·‚¢®Ô
+// –ö–æ–Ω—Å—Ç–∞–Ω—Ç—ã –¥–ª—è –≤—ã–±–æ—Ä–∞ –¥–µ–π—Å—Ç–≤–∏—è
 #define INPUT_FROM_FILE 1
 #define MULTIPLY_WITH_NUMBER 2
 #define MULTIPLY_WITH_POLYNOM 3
@@ -17,26 +17,26 @@ using namespace std;
 #define ADD_POLYNOM_TO_LIST 7
 #define WRITE_TO_FILE 8
 
-// èÆ´®≠Æ¨
+// –ü–æ–ª–∏–Ω–æ–º
 class Polynom
 {
 public:
-	static Polynom fromFile(const char * file_name); // Á®‚†•‚ ØÆ´®≠Æ¨ ®ß ‰†©´†
+	static Polynom fromFile(const char * file_name); // —á–∏—Ç–∞–µ—Ç –ø–æ–ª–∏–Ω–æ–º –∏–∑ —Ñ–∞–π–ª–∞
 
-	Polynom(vector<double> polynom); // ëÆß§†•‚ ØÆ´®≠Æ¨ ®ß ¢•™‚Æ‡† · ™ÆÌ‰‰®Ê®•≠‚†¨®
+	Polynom(vector<double> polynom); // –°–æ–∑–¥–∞–µ—Ç –ø–æ–ª–∏–Ω–æ–º –∏–∑ –≤–µ–∫—Ç–æ—Ä–∞ —Å –∫–æ—ç—Ñ—Ñ–∏—Ü–∏–µ–Ω—Ç–∞–º–∏
 
-	string toString(); // ·´„¶®‚ §´Ô ¢Î¢Æ§† ØÆ´®≠Æ¨† ≠† Ì™‡†≠
-	void save(const char * file_name); // ·ÆÂ‡†≠Ô•‚ ØÆ´®≠Æ¨ ¢ ‰†©´
-	bool operator == (Polynom p); // Ø‡Æ¢•‡Ô•‚ §¢† ØÆ´®≠Æ¨† ≠† ‡†¢•≠·‚¢Æ
-	Polynom operator -(); // ¨•≠Ô•‚ ß≠†™® ™ÆÌ‰‰®Ê®•≠‚Æ¢ ≠† Ø‡Æ‚®¢ÆØÆ´Æ¶≠Î•
-	Polynom operator + (Polynom p); // ÇÎÁ®·´Ô•‚ ·„¨¨„ §¢„Â ØÆ´®≠Æ¨Æ¢
-	Polynom operator * (Polynom p); // ÇÎÁ®·´Ô•‚ Ø‡Æ®ß¢•§•≠®• §¢„Â ØÆ´®≠Æ¨Æ¢
-	Polynom operator * (double m); // ÇÎÁ®·´Ô•‚ Ø‡Æ®ß¢•§•≠®• ØÆ´®≠Æ¨† ≠† Á®·´Æ
+	string toString(); // —Å–ª—É–∂–∏—Ç –¥–ª—è –≤—ã–≤–æ–¥–∞ –ø–æ–ª–∏–Ω–æ–º–∞ –Ω–∞ —ç–∫—Ä–∞–Ω
+	void save(const char * file_name); // —Å–æ—Ö—Ä–∞–Ω—è–µ—Ç –ø–æ–ª–∏–Ω–æ–º –≤ —Ñ–∞–π–ª
+	bool operator == (Polynom p); // –ø—Ä–æ–≤–µ—Ä—è–µ—Ç –¥–≤–∞ –ø–æ–ª–∏–Ω–æ–º–∞ –Ω–∞ —Ä–∞–≤–µ–Ω—Å—Ç–≤–æ
+	Polynom operator -(); // –º–µ–Ω—è–µ—Ç –∑–Ω–∞–∫–∏ –∫–æ—ç—Ñ—Ñ–∏—Ü–∏–µ–Ω—Ç–æ–≤ –Ω–∞ –ø—Ä–æ—Ç–∏–≤–æ–ø–æ–ª–æ–∂–Ω—ã–µ
+	Polynom operator + (Polynom p); // –í—ã—á–∏—Å–ª—è–µ—Ç —Å—É–º–º—É –¥–≤—É—Ö –ø–æ–ª–∏–Ω–æ–º–æ–≤
+	Polynom operator * (Polynom p); // –í—ã—á–∏—Å–ª—è–µ—Ç –ø—Ä–æ–∏–∑–≤–µ–¥–µ–Ω–∏–µ –¥–≤—É—Ö –ø–æ–ª–∏–Ω–æ–º–æ–≤
+	Polynom operator * (double m); // –í—ã—á–∏—Å–ª—è–µ—Ç –ø—Ä–æ–∏–∑–≤–µ–¥–µ–Ω–∏–µ –ø–æ–ª–∏–Ω–æ–º–∞ –Ω–∞ —á–∏—Å–ª–æ
 
 private:
-	Polynom(double * polynom, int range); // ·´„¶®‚ §´Ô ·Æß§†≠®Ô ØÆ´®≠Æ¨† ®ß ¨†··®¢† ™ÆÌ‰‰®Ê®•≠‚Æ¢. 
-	int _range; // ë‚•Ø•≠Ï ØÆ´®≠Æ¨†
-	double * q; // äÆÌ‰‰®Ê®•≠‚Î ØÆ´®≠Æ¨†. q[i] - ™ÆÌ‰‰®Ê®•≠‚ Ø‡® x^i. Ñ´®≠† ¨†··®¢† ≠† 1 °Æ´ÏË• ·‚•Ø•≠®
+	Polynom(double * polynom, int range); // —Å–ª—É–∂–∏—Ç –¥–ª—è —Å–æ–∑–¥–∞–Ω–∏—è –ø–æ–ª–∏–Ω–æ–º–∞ –∏–∑ –º–∞—Å—Å–∏–≤–∞ –∫–æ—ç—Ñ—Ñ–∏—Ü–∏–µ–Ω—Ç–æ–≤. 
+	int _range; // –°—Ç–µ–ø–µ–Ω—å –ø–æ–ª–∏–Ω–æ–º–∞
+	double * q; // –ö–æ—ç—Ñ—Ñ–∏—Ü–∏–µ–Ω—Ç—ã –ø–æ–ª–∏–Ω–æ–º–∞. q[i] - –∫–æ—ç—Ñ—Ñ–∏—Ü–∏–µ–Ω—Ç –ø—Ä–∏ x^i. –î–ª–∏–Ω–∞ –º–∞—Å—Å–∏–≤–∞ –Ω–∞ 1 –±–æ–ª—å—à–µ —Å—Ç–µ–ø–µ–Ω–∏
 };
 
 #pragma region Polynom class methods realization
@@ -46,7 +46,7 @@ Polynom Polynom::fromFile(const char * file_name) {
 	file.open(file_name, ios::in);
 
 	if (!file.is_open()) {
-		throw - 1; // ¢Î°‡Æ· ®·™´ÓÁ•≠®Ô. í†™ Ø‡Æ£‡†¨¨† ≠• Ø†§†•‚
+		throw - 1; // –≤—ã–±—Ä–æ—Å –∏—Å–∫–ª—é—á–µ–Ω–∏—è. –¢–∞–∫ –ø—Ä–æ–≥—Ä–∞–º–º–∞ –Ω–µ –ø–∞–¥–∞–µ—Ç
 	}
 
 	int range;
@@ -54,7 +54,7 @@ Polynom Polynom::fromFile(const char * file_name) {
 	file >> range;
 
 	if (range < 0) {
-		throw - 1; 
+		throw - 1;
 	}
 
 	double * a = new double[range + 1];
@@ -195,18 +195,18 @@ Polynom Polynom::operator*(double m) {
 
 #pragma endregion
 
-std::vector<Polynom> polynoms; // Â‡†≠®‚ ·Ø®·Æ™ ØÆ´®≠Æ¨Æ¢
-HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE); // ≠„¶•≠ §´Ô ®ß¨•≠•≠®Ô Ê¢•‚† ‚•™·‚† ¢ ™Æ≠·Æ´®
+std::vector<Polynom> polynoms; // —Ö—Ä–∞–Ω–∏—Ç —Å–ø–∏—Å–æ–∫ –ø–æ–ª–∏–Ω–æ–º–æ–≤
+HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE); // –Ω—É–∂–µ–Ω –¥–ª—è –∏–∑–º–µ–Ω–µ–Ω–∏—è —Ü–≤–µ—Ç–∞ —Ç–µ–∫—Å—Ç–∞ –≤ –∫–æ–Ω—Å–æ–ª–∏
 
 #pragma region Supporting methods for interaction with user
 
-// SetConsoleTextAttribute(hConsole, c) -  ¨•≠Ô•‚ Ê¢•‚ ‚•™·‚† ¢ ™Æ≠·Æ´® ≠† c
-// try - catch ·Ø†·†•‚ Ø‡Æ£‡†¨¨„ Æ‚ Ø†§•≠®©
+												   // SetConsoleTextAttribute(hConsole, c) -  –º–µ–Ω—è–µ—Ç —Ü–≤–µ—Ç —Ç–µ–∫—Å—Ç–∞ –≤ –∫–æ–Ω—Å–æ–ª–∏ –Ω–∞ c
+												   // try - catch —Å–ø–∞—Å–∞–µ—Ç –ø—Ä–æ–≥—Ä–∞–º–º—É –æ—Ç –ø–∞–¥–µ–Ω–∏–π
 
 
 void read_polynom() {
 	SetConsoleTextAttribute(hConsole, 9);
-	cout << "Ç¢•§®‚• ®¨Ô ‰†©´† · ØÆ´®≠Æ¨Æ¨" << "\n";
+	cout << "–í–≤–µ–¥–∏—Ç–µ –∏–º—è —Ñ–∞–π–ª–∞ —Å –ø–æ–ª–∏–Ω–æ–º–æ–º" << "\n";
 	char * file_name = new char[256];
 	cin >> file_name;
 
@@ -216,16 +216,16 @@ void read_polynom() {
 	}
 	catch (int e) {
 		SetConsoleTextAttribute(hConsole, 12);
-		cout << "éË®°™† Á‚•≠®Ô ‰†©´†\n";
+		cout << "–û—à–∏–±–∫–∞ —á—Ç–µ–Ω–∏—è —Ñ–∞–π–ª–∞\n";
 		SetConsoleTextAttribute(hConsole, 8);
 		system("pause");
 	}
 }
 
-// ·Ø‡†Ë®¢†•‚ ØÆ´ÏßÆ¢†‚•Ô, ·´•§„•‚ ´® ß†Ø®·†‚Ï ´® ÆØ•‡†Ê®Ó ¢ ‰†©´
+// —Å–ø—Ä–∞—à–∏–≤–∞–µ—Ç –ø–æ–ª—å–∑–æ–≤–∞—Ç–µ—è, —Å–ª–µ–¥—É–µ—Ç –ª–∏ –∑–∞–ø–∏—Å–∞—Ç—å –ª–∏ –æ–ø–µ—Ä–∞—Ü–∏—é –≤ —Ñ–∞–π–ª
 bool ask_save_to_file() {
 	SetConsoleTextAttribute(hConsole, 9);
-	cout << "ëÆÂ‡†≠®‚Ï ÆØ•‡†Ê®Ó ¢ ‰†©´? (y/n)";
+	cout << "–°–æ—Ö—Ä–∞–Ω–∏—Ç—å –æ–ø–µ—Ä–∞—Ü–∏—é –≤ —Ñ–∞–π–ª? (y/n)";
 	getchar();
 	char c = getchar();
 	if (c == 'y') {
@@ -240,10 +240,10 @@ bool ask_save_to_file() {
 	}
 }
 
-// ·Ø‡†Ë®¢†•‚ ØÆ´ÏßÆ¢†‚•´Ô, ·´•§„•‚ ´® §Æ°†¢®‚Ï ØÆ´®≠Æ¨ - ‡•ß„´Ï‚†‚ ÆØ•‡†Ê®® ¢ polynoms
+// —Å–ø—Ä–∞—à–∏–≤–∞–µ—Ç –ø–æ–ª—å–∑–æ–≤–∞—Ç–µ–ª—è, —Å–ª–µ–¥—É–µ—Ç –ª–∏ –¥–æ–±–∞–≤–∏—Ç—å –ø–æ–ª–∏–Ω–æ–º - —Ä–µ–∑—É–ª—å—Ç–∞—Ç –æ–ø–µ—Ä–∞—Ü–∏–∏ –≤ polynoms
 bool ask_add_result() {
 	SetConsoleTextAttribute(hConsole, 9);
-	cout << "ÑÆ°†¢®‚Ï ‡•ß„´Ï‚†‚ ¢ ·Ø®·Æ™? (y/n)";
+	cout << "–î–æ–±–∞–≤–∏—Ç—å —Ä–µ–∑—É–ª—å—Ç–∞—Ç –≤ —Å–ø–∏—Å–æ–∫? (y/n)";
 	getchar();
 	char c = getchar();
 	if (c == 'y') {
@@ -260,17 +260,17 @@ bool ask_add_result() {
 
 void multiply_with_number() {
 	SetConsoleTextAttribute(hConsole, 9);
-	cout << "Ç¢•§®‚• ≠Æ¨•‡ ØÆ´®≠Æ¨†" << "\n";
+	cout << "–í–≤–µ–¥–∏—Ç–µ –Ω–æ–º–µ—Ä –ø–æ–ª–∏–Ω–æ–º–∞" << "\n";
 	int i;
 	cin >> i;
 	if (i >= polynoms.size() || i < 0) {
 		SetConsoleTextAttribute(hConsole, 12);
-		cout << "ØÆ´®≠Æ¨† · ‚†™®¨ ≠Æ¨•‡Æ¨ ≠•‚" << "\n";
+		cout << "–ø–æ–ª–∏–Ω–æ–º–∞ —Å —Ç–∞–∫–∏–º –Ω–æ–º–µ—Ä–æ–º –Ω–µ—Ç" << "\n";
 		system("pause");
 		return;
 	}
 	double m;
-	cout << "Ç¢•§®‚• Á®·´Æ, ≠† ™Æ‚Æ‡Æ• ≠„¶≠Æ „¨≠Æ¶®‚Ï" << "\n";
+	cout << "–í–≤–µ–¥–∏—Ç–µ —á–∏—Å–ª–æ, –Ω–∞ –∫–æ—Ç–æ—Ä–æ–µ –Ω—É–∂–Ω–æ —É–º–Ω–æ–∂–∏—Ç—å" << "\n";
 	cin >> m;
 
 	Polynom result = polynoms[i] * m;
@@ -278,7 +278,7 @@ void multiply_with_number() {
 
 	if (ask_save_to_file()) {
 		SetConsoleTextAttribute(hConsole, 9);
-		cout << "Ç¢•§®‚• ®¨Ô ‰†©´†" << "\n";
+		cout << "–í–≤–µ–¥–∏—Ç–µ –∏–º—è —Ñ–∞–π–ª–∞" << "\n";
 		SetConsoleTextAttribute(hConsole, 8);
 		char * file_name = new char[256];
 		cin >> file_name;
@@ -296,22 +296,22 @@ void multiply_with_number() {
 
 void multiply_with_polynom() {
 	SetConsoleTextAttribute(hConsole, 9);
-	cout << "Ç¢•§®‚• ≠Æ¨•‡ Ø•‡¢Æ£Æ ØÆ´®≠Æ¨†" << "\n";
+	cout << "–í–≤–µ–¥–∏—Ç–µ –Ω–æ–º–µ—Ä –ø–µ—Ä–≤–æ–≥–æ –ø–æ–ª–∏–Ω–æ–º–∞" << "\n";
 	int i1;
 	cin >> i1;
 	if (i1 >= polynoms.size() || i1 < 0) {
 		SetConsoleTextAttribute(hConsole, 12);
-		cout << "ØÆ´®≠Æ¨† · ‚†™®¨ ≠Æ¨•‡Æ¨ ≠•‚" << "\n";
+		cout << "–ø–æ–ª–∏–Ω–æ–º–∞ —Å —Ç–∞–∫–∏–º –Ω–æ–º–µ—Ä–æ–º –Ω–µ—Ç" << "\n";
 		system("pause");
 		return;
 	}
 	cout << '\n';
-	cout << "Ç¢•§®‚• ≠Æ¨•‡ ¢‚Æ‡Æ£Æ ØÆ´®≠Æ¨†" << "\n";
+	cout << "–í–≤–µ–¥–∏—Ç–µ –Ω–æ–º–µ—Ä –≤—Ç–æ—Ä–æ–≥–æ –ø–æ–ª–∏–Ω–æ–º–∞" << "\n";
 	int i2;
 	cin >> i2;
 	if (i2 >= polynoms.size() || i2 < 0) {
 		SetConsoleTextAttribute(hConsole, 12);
-		cout << "ØÆ´®≠Æ¨† · ‚†™®¨ ≠Æ¨•‡Æ¨ ≠•‚" << "\n";
+		cout << "–ø–æ–ª–∏–Ω–æ–º–∞ —Å —Ç–∞–∫–∏–º –Ω–æ–º–µ—Ä–æ–º –Ω–µ—Ç" << "\n";
 		system("pause");
 		return;
 	}
@@ -323,7 +323,7 @@ void multiply_with_polynom() {
 
 	if (ask_save_to_file()) {
 		SetConsoleTextAttribute(hConsole, 9);
-		cout << "Ç¢•§®‚• ®¨Ô ‰†©´†" << "\n";
+		cout << "–í–≤–µ–¥–∏—Ç–µ –∏–º—è —Ñ–∞–π–ª–∞" << "\n";
 		SetConsoleTextAttribute(hConsole, 8);
 		char * file_name = new char[256];
 		cin >> file_name;
@@ -341,12 +341,12 @@ void multiply_with_polynom() {
 
 void change_sign() {
 	SetConsoleTextAttribute(hConsole, 9);
-	cout << "Ç¢•§®‚• ≠Æ¨•‡ ØÆ´®≠Æ¨†" << "\n";
+	cout << "–í–≤–µ–¥–∏—Ç–µ –Ω–æ–º–µ—Ä –ø–æ–ª–∏–Ω–æ–º–∞" << "\n";
 	int i;
 	cin >> i;
 	if (i >= polynoms.size() || i < 0) {
 		SetConsoleTextAttribute(hConsole, 12);
-		cout << "ØÆ´®≠Æ¨† · ‚†™®¨ ≠Æ¨•‡Æ¨ ≠•‚" << "\n";
+		cout << "–ø–æ–ª–∏–Ω–æ–º–∞ —Å —Ç–∞–∫–∏–º –Ω–æ–º–µ—Ä–æ–º –Ω–µ—Ç" << "\n";
 		system("pause");
 		return;
 	}
@@ -356,7 +356,7 @@ void change_sign() {
 
 	if (ask_save_to_file()) {
 		SetConsoleTextAttribute(hConsole, 9);
-		cout << "Ç¢•§®‚• ®¨Ô ‰†©´†" << "\n";
+		cout << "–í–≤–µ–¥–∏—Ç–µ –∏–º—è —Ñ–∞–π–ª–∞" << "\n";
 		SetConsoleTextAttribute(hConsole, 8);
 		char * file_name = new char[256];
 		cin >> file_name;
@@ -374,22 +374,22 @@ void change_sign() {
 
 void add_polynom_to_polynom() {
 	SetConsoleTextAttribute(hConsole, 9);
-	cout << "Ç¢•§®‚• ≠Æ¨•‡ Ø•‡¢Æ£Æ ØÆ´®≠Æ¨†" << "\n";
+	cout << "–í–≤–µ–¥–∏—Ç–µ –Ω–æ–º–µ—Ä –ø–µ—Ä–≤–æ–≥–æ –ø–æ–ª–∏–Ω–æ–º–∞" << "\n";
 	int i1;
 	cin >> i1;
 	if (i1 >= polynoms.size() || i1 < 0) {
 		SetConsoleTextAttribute(hConsole, 12);
-		cout << "ØÆ´®≠Æ¨† · ‚†™®¨ ≠Æ¨•‡Æ¨ ≠•‚" << "\n";
+		cout << "–ø–æ–ª–∏–Ω–æ–º–∞ —Å —Ç–∞–∫–∏–º –Ω–æ–º–µ—Ä–æ–º –Ω–µ—Ç" << "\n";
 		system("pause");
 		return;
 	}
 	cout << '\n';
-	cout << "Ç¢•§®‚• ≠Æ¨•‡ ¢‚Æ‡Æ£Æ ØÆ´®≠Æ¨†" << "\n";
+	cout << "–í–≤–µ–¥–∏—Ç–µ –Ω–æ–º–µ—Ä –≤—Ç–æ—Ä–æ–≥–æ –ø–æ–ª–∏–Ω–æ–º–∞" << "\n";
 	int i2;
 	cin >> i2;
 	if (i2 >= polynoms.size() || i2 < 0) {
 		SetConsoleTextAttribute(hConsole, 12);
-		cout << "ØÆ´®≠Æ¨† · ‚†™®¨ ≠Æ¨•‡Æ¨ ≠•‚" << "\n";
+		cout << "–ø–æ–ª–∏–Ω–æ–º–∞ —Å —Ç–∞–∫–∏–º –Ω–æ–º–µ—Ä–æ–º –Ω–µ—Ç" << "\n";
 		system("pause");
 		return;
 	}
@@ -401,7 +401,7 @@ void add_polynom_to_polynom() {
 
 	if (ask_save_to_file()) {
 		SetConsoleTextAttribute(hConsole, 9);
-		cout << "Ç¢•§®‚• ®¨Ô ‰†©´†" << "\n";
+		cout << "–í–≤–µ–¥–∏—Ç–µ –∏–º—è —Ñ–∞–π–ª–∞" << "\n";
 		SetConsoleTextAttribute(hConsole, 8);
 		char * file_name = new char[256];
 		cin >> file_name;
@@ -419,22 +419,22 @@ void add_polynom_to_polynom() {
 
 void check_equal() {
 	SetConsoleTextAttribute(hConsole, 9);
-	cout << "Ç¢•§®‚• ≠Æ¨•‡ Ø•‡¢Æ£Æ ØÆ´®≠Æ¨†" << "\n";
+	cout << "–í–≤–µ–¥–∏—Ç–µ –Ω–æ–º–µ—Ä –ø–µ—Ä–≤–æ–≥–æ –ø–æ–ª–∏–Ω–æ–º–∞" << "\n";
 	int i1;
 	cin >> i1;
 	if (i1 >= polynoms.size() || i1 < 0) {
 		SetConsoleTextAttribute(hConsole, 12);
-		cout << "ØÆ´®≠Æ¨† · ‚†™®¨ ≠Æ¨•‡Æ¨ ≠•‚" << "\n";
+		cout << "–ø–æ–ª–∏–Ω–æ–º–∞ —Å —Ç–∞–∫–∏–º –Ω–æ–º–µ—Ä–æ–º –Ω–µ—Ç" << "\n";
 		system("pause");
 		return;
 	}
 	cout << '\n';
-	cout << "Ç¢•§®‚• ≠Æ¨•‡ ¢‚Æ‡Æ£Æ ØÆ´®≠Æ¨†" << "\n";
+	cout << "–í–≤–µ–¥–∏—Ç–µ –Ω–æ–º–µ—Ä –≤—Ç–æ—Ä–æ–≥–æ –ø–æ–ª–∏–Ω–æ–º–∞" << "\n";
 	int i2;
 	cin >> i2;
 	if (i2 >= polynoms.size() || i2 < 0) {
 		SetConsoleTextAttribute(hConsole, 12);
-		cout << "ØÆ´®≠Æ¨† · ‚†™®¨ ≠Æ¨•‡Æ¨ ≠•‚" << "\n";
+		cout << "–ø–æ–ª–∏–Ω–æ–º–∞ —Å —Ç–∞–∫–∏–º –Ω–æ–º–µ—Ä–æ–º –Ω–µ—Ç" << "\n";
 		system("pause");
 		return;
 	}
@@ -442,14 +442,14 @@ void check_equal() {
 
 	bool result = polynoms[i1] == polynoms[i2];
 	SetConsoleTextAttribute(hConsole, 10);
-	cout << "èÆ´®≠Æ¨Î (" << polynoms[i1].toString() << ")" << " ® (" << polynoms[i2].toString() << ") " << (result ? "‡†¢≠Î" : "≠• ‡†¢≠Î") << "\n";
+	cout << "–ü–æ–ª–∏–Ω–æ–º—ã (" << polynoms[i1].toString() << ")" << " –∏ (" << polynoms[i2].toString() << ") " << (result ? "—Ä–∞–≤–Ω—ã" : "–Ω–µ —Ä–∞–≤–Ω—ã") << "\n";
 	SetConsoleTextAttribute(hConsole, 8);
 	system("pause");
 }
 
 void add_polynom_to_list() {
 	SetConsoleTextAttribute(hConsole, 9);
-	cout << "Ç¢•§•≠Î ·‚•Ø•≠Ï ØÆ´®≠Æ¨†:\n";
+	cout << "–í–≤–µ–¥–µ–Ω—ã —Å—Ç–µ–ø–µ–Ω—å –ø–æ–ª–∏–Ω–æ–º–∞:\n";
 	int range;
 	SetConsoleTextAttribute(hConsole, 8);
 	cin >> range;
@@ -457,7 +457,7 @@ void add_polynom_to_list() {
 	pol.reserve(range + 1);
 
 	SetConsoleTextAttribute(hConsole, 9);
-	cout << "Ç¢Æ§®‚• ™ÆÌ‰‰®Ê®•≠‚Î ØÆ´®≠Æ¨† ØÆ Æ§≠Æ¨„" << "\n";
+	cout << "–í–≤–æ–¥–∏—Ç–µ –∫–æ—ç—Ñ—Ñ–∏—Ü–∏–µ–Ω—Ç—ã –ø–æ–ª–∏–Ω–æ–º–∞ –ø–æ –æ–¥–Ω–æ–º—É" << "\n";
 	SetConsoleTextAttribute(hConsole, 8);
 	for (int i = 0; i < range + 1; ++i) {
 		double q;
@@ -470,18 +470,18 @@ void add_polynom_to_list() {
 
 void write_to_file() {
 	SetConsoleTextAttribute(hConsole, 9);
-	cout << "Ç¢•§®‚• ≠Æ¨•‡ ØÆ´®≠Æ¨†" << "\n";
+	cout << "–í–≤–µ–¥–∏—Ç–µ –Ω–æ–º–µ—Ä –ø–æ–ª–∏–Ω–æ–º–∞" << "\n";
 	int i;
 	cin >> i;
 	if (i >= polynoms.size() || i < 0) {
 		SetConsoleTextAttribute(hConsole, 12);
-		cout << "ØÆ´®≠Æ¨† · ‚†™®¨ ≠Æ¨•‡Æ¨ ≠•‚" << "\n";
+		cout << "–ø–æ–ª–∏–Ω–æ–º–∞ —Å —Ç–∞–∫–∏–º –Ω–æ–º–µ—Ä–æ–º –Ω–µ—Ç" << "\n";
 		system("pause");
 		return;
 	}
 
 	SetConsoleTextAttribute(hConsole, 9);
-	cout << "Ç¢•§®‚• ®¨Ô ‰†©´†" << "\n";
+	cout << "–í–≤–µ–¥–∏—Ç–µ –∏–º—è —Ñ–∞–π–ª–∞" << "\n";
 	SetConsoleTextAttribute(hConsole, 8);
 	char * file_name = new char[256];
 	cin >> file_name;
@@ -490,34 +490,34 @@ void write_to_file() {
 
 #pragma endregion
 
-// ÇÎ¢Æ§®‚ ≠†Á†´Ï≠Æ• ·Æ·‚ÆÔ≠®• ®≠‚•‡‰•©·†, Æ·„È•·‚¢´Ô•‚ ¢ß†®¨Æ§•©·‚¢®• · ØÆ´ÏßÆ¢†‚•´•¨
+// –í—ã–≤–æ–¥–∏—Ç –Ω–∞—á–∞–ª—å–Ω–æ–µ —Å–æ—Å—Ç–æ—è–Ω–∏–µ –∏–Ω—Ç–µ—Ä—Ñ–µ–π—Å–∞, –æ—Å—É—â–µ—Å—Ç–≤–ª—è–µ—Ç –≤–∑–∞–∏–º–æ–¥–µ–π—Å—Ç–≤–∏–µ —Å –ø–æ–ª—å–∑–æ–≤–∞—Ç–µ–ª–µ–º
 int start() {
 	system("cls");
 
 	if (polynoms.size() > 0) {
 		SetConsoleTextAttribute(hConsole, 9);
-		cout << "Ç¢•§•≠Î ·´•§„ÓÈ®• ØÆ´®≠Æ¨Î:\n";
+		cout << "–í–≤–µ–¥–µ–Ω—ã —Å–ª–µ–¥—É—é—â–∏–µ –ø–æ–ª–∏–Ω–æ–º—ã:\n";
 		SetConsoleTextAttribute(hConsole, 10);
 		for (int i = 0; i < polynoms.size(); ++i) {
 			cout << i << "\t" << polynoms[i].toString() << "\n";
 		}
 	}
 	else {
-		cout << "Ç Ø‡Æ£‡†¨¨„ •ÈÒ ≠• ¢¢•§•≠Î ØÆ´®≠Æ¨Î" << "\n";
+		cout << "–í –ø—Ä–æ–≥—Ä–∞–º–º—É –µ—â—ë –Ω–µ –≤–≤–µ–¥–µ–Ω—ã –ø–æ–ª–∏–Ω–æ–º—ã" << "\n";
 	}
 
 	SetConsoleTextAttribute(hConsole, 9);
-	cout << "ó‚Æ ¢Î ÂÆ‚®‚• ·§•´†‚Ï?\n";
+	cout << "–ß—Ç–æ –≤—ã —Ö–æ—Ç–∏—Ç–µ —Å–¥–µ–ª–∞—Ç—å?\n";
 	SetConsoleTextAttribute(hConsole, 8);
-	cout << INPUT_FROM_FILE << "\t-\t" << "è‡ÆÁ®‚†‚Ï ØÆ´®≠Æ¨ ®ß ‰†©´†" << "\n";
-	cout << MULTIPLY_WITH_NUMBER << "\t-\t" << "ì¨≠Æ¶®‚Ï ØÆ´®≠Æ¨ ≠† Á®·´Æ" << "\n";
-	cout << MULTIPLY_WITH_POLYNOM << "\t-\t" << "ì¨≠Æ¶®‚Ï ØÆ´®≠Æ¨ ≠† ØÆ´®≠Æ¨" << "\n";
-	cout << CHANGE_SIGN << "\t-\t" << "àß¨•≠•≠®‚Ï ß≠†™® ™ÆÌ‰‰®Ê®•≠‚Æ¢ ØÆ´®≠Æ¨† ≠† Ø‡Æ‚®¢ÆØÆ´Æ¶≠Î•" << "\n";
-	cout << ADD_POLYNOM_TO_POLYNOM << "\t-\t" << "ë´Æ¶®‚Ï §¢† ØÆ´®≠Æ¨†" << "\n";
-	cout << CHECK_EQUAL << "\t-\t" << "è‡Æ¢•‡®‚Ï §¢† ØÆ´®≠Æ¨† ≠† ‡†¢•≠·‚¢Æ" << "\n";
-	cout << ADD_POLYNOM_TO_LIST << "\t-\t" << "ÑÆ°†¢®‚Ï ØÆ´®≠Æ¨" << "\n";
-	cout << WRITE_TO_FILE << "\t-\t" << "á†Ø®·†‚Ï ØÆ´®≠Æ¨ ¢ ‰†©´" << "\n";
-	cout << 0 << "\t-\t" << "á†™‡Î‚Ï Ø‡Æ£‡†¨¨„" << "\n";
+	cout << INPUT_FROM_FILE << "\t-\t" << "–ü—Ä–æ—á–∏—Ç–∞—Ç—å –ø–æ–ª–∏–Ω–æ–º –∏–∑ —Ñ–∞–π–ª–∞" << "\n";
+	cout << MULTIPLY_WITH_NUMBER << "\t-\t" << "–£–º–Ω–æ–∂–∏—Ç—å –ø–æ–ª–∏–Ω–æ–º –Ω–∞ —á–∏—Å–ª–æ" << "\n";
+	cout << MULTIPLY_WITH_POLYNOM << "\t-\t" << "–£–º–Ω–æ–∂–∏—Ç—å –ø–æ–ª–∏–Ω–æ–º –Ω–∞ –ø–æ–ª–∏–Ω–æ–º" << "\n";
+	cout << CHANGE_SIGN << "\t-\t" << "–ò–∑–º–µ–Ω–µ–Ω–∏—Ç—å –∑–Ω–∞–∫–∏ –∫–æ—ç—Ñ—Ñ–∏—Ü–∏–µ–Ω—Ç–æ–≤ –ø–æ–ª–∏–Ω–æ–º–∞ –Ω–∞ –ø—Ä–æ—Ç–∏–≤–æ–ø–æ–ª–æ–∂–Ω—ã–µ" << "\n";
+	cout << ADD_POLYNOM_TO_POLYNOM << "\t-\t" << "–°–ª–æ–∂–∏—Ç—å –¥–≤–∞ –ø–æ–ª–∏–Ω–æ–º–∞" << "\n";
+	cout << CHECK_EQUAL << "\t-\t" << "–ü—Ä–æ–≤–µ—Ä–∏—Ç—å –¥–≤–∞ –ø–æ–ª–∏–Ω–æ–º–∞ –Ω–∞ —Ä–∞–≤–µ–Ω—Å—Ç–≤–æ" << "\n";
+	cout << ADD_POLYNOM_TO_LIST << "\t-\t" << "–î–æ–±–∞–≤–∏—Ç—å –ø–æ–ª–∏–Ω–æ–º" << "\n";
+	cout << WRITE_TO_FILE << "\t-\t" << "–ó–∞–ø–∏—Å–∞—Ç—å –ø–æ–ª–∏–Ω–æ–º –≤ —Ñ–∞–π–ª" << "\n";
+	cout << 0 << "\t-\t" << "–ó–∞–∫—Ä—ã—Ç—å –ø—Ä–æ–≥—Ä–∞–º–º—É" << "\n";
 
 	int what = getchar() - '1' + 1;
 
